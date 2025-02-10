@@ -1,0 +1,69 @@
+
+param_key:
+  param_type: fixed
+  param_val: search01
+
+modelname: 
+  param_type: fixed
+  param_val: resnet18
+
+dataset:
+  param_type: fixed
+  param_val: buet
+
+target_dx:  
+  param_type: fixed
+  param_val: <VAL01>
+
+finetune_target:
+  param_type: fixed
+  param_val: null
+
+# Hyperparameter Search params.
+num_trials:
+  param_type: fixed
+  param_val: 10000
+max_time:
+  param_type: fixed
+  param_val: 86400
+hps_epochs:
+  param_type: fixed
+  param_val: 500
+
+# Augmentation params.
+aug_mask_ratio:
+  param_type: hps
+  param_val: 
+    - uniform
+    - 0.0
+    - 0.9
+max_shift_ratio:
+  param_type: hps
+  param_val: 
+    - uniform
+    - 0.0
+    - 0.9
+flip_rate:
+  param_type: hps
+  param_val: 
+    - uniform
+    - 0.0
+    - 0.9
+breathing_scale:
+  param_type: hps
+  param_val: 
+    - log_uniform
+    - 0.25
+    - 4.0
+stretch_ratio:
+  param_type: hps
+  param_val: 
+    - log_uniform
+    - 0.25
+    - 4.0
+scale_ratio:
+  param_type: hps
+  param_val: 
+    - log_uniform
+    - 0.25
+    - 4.0

@@ -1,0 +1,21 @@
+
+param_key:
+  param_type: fixed
+  param_val: eval
+
+modelname: 
+  param_type: fixed
+  param_val: <VAL03>
+
+dataset:
+  param_type: fixed
+  param_val: <VAL02>
+
+target_dx:  
+  param_type: fixed
+  param_val: <VAL01>
+
+eval_target:
+  param_type: fixed
+  param_val: null
+

@@ -1,0 +1,45 @@
+
+param_key:
+  param_type: fixed
+  param_val: main02
+
+modelname: 
+  param_type: fixed
+  param_val: <VAL03>
+
+dataset:
+  param_type: fixed
+  param_val: <VAL02>
+
+target_dx:  
+  param_type: fixed
+  param_val: <VAL01>
+
+finetune_target:
+  param_type: fixed
+  param_val: null
+
+freeze:
+  param_type: fixed
+  param_val: False
+
+
+# Augmentation params.
+aug_mask_ratio:
+  param_type: fixed
+  param_val: <HPS>
+max_shift_ratio:
+  param_type: fixed
+  param_val: <HPS>
+flip_rate:
+  param_type: fixed
+  param_val: <HPS>
+breathing_scale:
+  param_type: fixed
+  param_val: <HPS>
+stretch_ratio:
+  param_type: fixed
+  param_val: <HPS>
+scale_ratio:
+  param_type: fixed
+  param_val: <HPS>

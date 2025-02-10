@@ -1,0 +1,339 @@
+
+settings:
+
+  sample_per_pkl: 1000
+  duration: 10
+
+  n_syn:
+    train: 50
+    val: 10
+  n_wavs_to_save: 10
+
+
+syn_params:
+
+  # AS specific parameters
+
+  as_noise_ma_width:
+    base:
+      shift: null
+      val: 18
+    base_perturb:
+      type: uniform
+      max: 6
+      min: -6
+    beat_perturb:
+      type: uniform
+      max: 1
+      min: 1
+
+  as_noise_width:
+    base:
+      shift: null
+      val: 3
+    base_perturb:
+      type: uniform
+      max: 0.5
+      min: -0.5
+    beat_perturb:
+      type: uniform
+      max: 0.05
+      min: -0.05
+
+  as_neg_ratio:
+    base:
+      shift: null
+      val: 0.5
+    base_perturb:
+      type: uniform
+      max: 0.01
+      min: -0.01
+    beat_perturb:
+      type: uniform
+      max: 0.001
+      min: -0.001
+
+  min_as_amp:
+    base:
+      shift: null
+      val: 0.05
+    base_perturb:
+      type: uniform
+      max: 0.005
+      min: -0.005
+    beat_perturb:
+      type: uniform
+      max: 0.0005
+      min: -0.0005
+
+  max_as_amp:
+    base:
+      shift: null
+      val: 2.75
+    base_perturb:
+      type: uniform
+      max: 0.5
+      min: -0.5
+    beat_perturb:
+      type: uniform
+      max: 0.1
+      min: -0.1
+
+  i_end_threshold:
+    base:
+      shift: null
+      val: 0.001
+    base_perturb:
+      type: uniform
+      max: 0.0001
+      min: -0.0001
+    beat_perturb:
+      type: uniform
+      max: 0.0001
+      min: -0.0001
+
+
+  # General parameters
+  beat_duration: 
+    base:
+      shift: null
+      val: 1.
+    base_perturb:
+      type: normal
+      sdev: 0.15
+    beat_perturb:
+      type: normal
+      sdev: 0.005
+
+  peak_i_fs: # peak_i_fs < peak_ii_fs
+    base:
+      shift: null
+      val: 24
+    base_perturb:
+      type: normal
+      sdev: 2.5
+    beat_perturb:
+      type: normal
+      sdev: 1
+  peak_i_duration: # peak_i_duration > peak_ii_duration
+    base:
+      shift: null
+      val: 0.75
+    base_perturb:
+      type: uniform
+      max: 0.25
+      min: -0.25
+    beat_perturb:
+      type: normal
+      sdev: 0.05
+  peak_i_height: # peak_i_height > peak_ii_height ?
+    base:
+      shift: null
+      val: 2.5
+    base_perturb:
+      type: uniform
+      max: 0.5
+      min: -0.5
+    beat_perturb:
+      type: normal
+      sdev: 0.025
+  peak_i_neg_ratio:
+    base:
+      shift: null
+      val: 0.25
+    base_perturb:
+      type: normal
+      sdev: 0.05
+    beat_perturb:
+      type: normal
+      sdev: 0.005
+  peak_i_shift: # peak_i_shift < peak_ii_shift
+    base:
+      shift: null
+      val: 0.2
+    base_perturb:
+      type: normal
+      sdev: 0.05
+    beat_perturb:
+      type: normal
+      sdev: 0.005
+
+
+  peak_ii_fs: # peak_i_fs < peak_ii_fs
+    base:
+      shift: null
+      val: 60
+    base_perturb:
+      type: normal
+      sdev: 5
+    beat_perturb:
+      type: normal
+      sdev: 1
+  peak_ii_duration: # peak_i_duration > peak_ii_duration
+    base:
+      shift: null
+      val: 0.25
+    base_perturb:
+      type: uniform
+      max: 0.1
+      min: -0.1
+    beat_perturb:
+      type: normal
+      sdev: 0.025
+  peak_ii_height: # peak_i_height > peak_ii_height ?
+    base:
+      shift: null
+      val: 3.
+    base_perturb:
+      type: uniform
+      max: 0.5
+      min: -0.5
+    beat_perturb:
+      type: normal
+      sdev: 0.05
+  peak_ii_neg_ratio:
+    base:
+      shift: null
+      val: 0.25
+    base_perturb:
+      type: normal
+      sdev: 0.05
+    beat_perturb:
+      type: normal
+      sdev: 0.005
+  peak_ii_shift: # peak_i_shift < peak_ii_shift
+    base:
+      shift: null
+      val: 0.55
+    base_perturb:
+      type: normal
+      sdev: 0.075
+    beat_perturb:
+      type: normal
+      sdev: 0.005
+
+
+  base_i_amp:
+    base:
+      shift: null
+      val: 0.05
+    base_perturb:
+      type: uniform
+      max: 0.005
+      min: -0.005
+    beat_perturb:
+      type: normal
+      sdev: 0.001
+  base_i_freq:
+    base:
+      shift: null
+      val: 15
+    base_perturb:
+      type: normal
+      sdev: 1.5
+    beat_perturb:
+      type: normal
+      sdev: 0.5
+  
+  base_ii_amp:
+    base:
+      shift: null
+      val: 0.15
+    base_perturb:
+      type: uniform
+      max: 0.01
+      min: -0.01
+    beat_perturb:
+      type: normal
+      sdev: 0.002
+  base_ii_freq:
+    base:
+      shift: null
+      val: 12
+    base_perturb:
+      type: normal
+      sdev: 0.5
+    beat_perturb:
+      type: normal
+      sdev: 0.075
+
+  base_iii_amp:
+    base:
+      shift: null
+      val: 0.25
+    base_perturb:
+      type: uniform
+      max: 0.075
+      min: -0.075
+    beat_perturb:
+      type: normal
+      sdev: 0.01
+  base_iii_freq:
+    base:
+      shift: null
+      val: 7
+    base_perturb:
+      type: uniform
+      max: 3
+      min: -3
+    beat_perturb:
+      type: normal
+      sdev: 0.1
+
+  wn1_width: 
+    base:
+      shift: null
+      val: 12
+    base_perturb:
+      type: uniform
+      max: 4
+      min: -4
+    beat_perturb:
+      type: normal
+      sdev: 0.5
+  wn1_scaler: 
+    base:
+      shift: null
+      val: 0.005
+    base_perturb:
+      type: uniform
+      max: 0.004
+      min: -0.004
+    beat_perturb:
+      type: normal
+      sdev: 0.0005
+  wn2_width: 
+    base:
+      shift: null
+      val: 80
+    base_perturb:
+      type: uniform
+      max: 20
+      min: -20
+    beat_perturb:
+      type: normal
+      sdev: 0.5
+  wn2_scaler: 
+    base:
+      shift: null
+      val: 0.01
+    base_perturb:
+      type: uniform
+      max: 0.006
+      min: -0.006
+    beat_perturb:
+      type: normal
+      sdev: 0.001
+
+  ma_width:
+    base:
+      shift: null
+      val: 80
+    base_perturb:
+      type: uniform
+      max: 5
+      min: -5
+    beat_perturb:
+      type: uniform
+      max: 0.0001
+      min: -0.0001
