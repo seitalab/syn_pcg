@@ -1,0 +1,82 @@
+
+param_key:
+  param_type: fixed
+  param_val: search01
+
+modelname: 
+  param_type: fixed
+  param_val: <VAL01> # gru, lstm
+
+dataset:
+  param_type: fixed
+  param_val: buet
+
+target_dx:  
+  param_type: fixed
+  param_val: MR
+
+finetune_target:
+  param_type: fixed
+  param_val: null
+
+# Hyperparameter Search params.
+num_trials:
+  param_type: fixed
+  param_val: 10000
+max_time:
+  param_type: fixed
+  param_val: 86400
+hps_epochs:
+  param_type: fixed
+  param_val: 500
+
+
+# Arch params.
+lin_chunk_len:
+  param_type: hps
+  param_val: 
+    - categorical
+    - [25, 50, 100, 250, 500]
+
+emb_dim:
+  param_type: hps
+  param_val: 
+    - int_pow
+    - 1
+    - 15
+    - 2
+
+rnn_depth:
+  param_type: hps
+  param_val: 
+    - int
+    - 1
+    - 12
+
+rnn_hidden:
+  param_type: hps
+  param_val: 
+    - int_pow
+    - 1
+    - 15
+    - 2
+
+# Augmentation params.
+aug_mask_ratio:
+  param_type: fixed
+  param_val: <HPS>
+max_shift_ratio:
+  param_type: fixed
+  param_val: <HPS>
+flip_rate:
+  param_type: fixed
+  param_val: <HPS>
+breathing_scale:
+  param_type: fixed
+  param_val: <HPS>
+stretch_ratio:
+  param_type: fixed
+  param_val: <HPS>
+scale_ratio:
+  param_type: fixed
+  param_val: <HPS>
