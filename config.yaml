@@ -4,11 +4,6 @@ path:
   original_data: /path/to/original/data
   processed_data: /path/to/processed/data_save_dir
 
-  data:
-    train_val: train_valid.csv
-    internal_test: internal.csv
-    external_test: external.csv
-
 experiment:
 
   clf_exp01:
