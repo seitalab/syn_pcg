@@ -1,0 +1,183 @@
+
+path:
+
+  original_data: /path/to/original/data
+  processed_data: /path/to/processed/data_save_dir
+
+  data:
+    train_val: train_valid.csv
+    internal_test: internal.csv
+    external_test: external.csv
+
+experiment:
+
+  clf_exp01:
+
+    save_root: experiment
+
+    seed:
+      hps: 123456
+      gs: 1234567
+      multiseed:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+    
+    syn_dataset_ver: 
+      Normal: syn02
+      AS: syn03
+      AR: syn02
+      MR: syn02
+      
+    result_cols:
+      - f1score
+      - AUROC
+      - AUPRC
+      - Recall
+      - Precision
+      - confusion_matrix
+      - loss
+    
+    params:
+
+      base: 
+        optimizer: adam
+        class_weight: balanced
+        num_lead: 1
+        clf_mode: dnn
+        select_type: cls_token
+
+        max_duration: 5 # sec
+        target_freq: 1000
+        n_workers: 4
+
+      prelim01:
+        epochs: 5
+        eval_every: 1
+        batch_size: 16
+
+        learning_rate: 1.*1e-4
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: 250
+        val_data_lim: 250
+
+        patience: 1
+        emb_dim: 256
+        clf_fc_dim: 64
+
+        mask_ratio: 0.1
+        max_shift_ratio: 0.5
+        max_flip_ratio: 0.2
+
+      prelim02:
+        epochs: 1000
+        eval_every: 5
+        batch_size: 128
+
+        learning_rate: 1.*1e-4
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: null
+        val_data_lim: null
+
+        patience: 5
+        emb_dim: 256
+        clf_fc_dim: 64
+
+        mask_ratio: 0.1
+        max_shift_ratio: 0.5
+        max_flip_ratio: 0.2
+
+      prelim03:
+        epochs: 1000
+        eval_every: 5
+        batch_size: 512
+        class_weight: null
+
+        learning_rate: 1.*1e-4
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: null
+        val_data_lim: null
+
+        patience: 5
+        emb_dim: 256
+        clf_fc_dim: 64
+
+
+      search01:
+        epochs: 500
+        batch_size: 512
+        eval_every: 5
+        patience: 5
+
+        learning_rate: 2.*1e-5
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: null
+        val_data_lim: null
+
+        clf_fc_dim: 64
+
+      main01:
+        epochs: 1000
+        batch_size: 512
+        eval_every: 5
+        patience: 5
+
+        learning_rate: 2.*1e-5
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: null
+        val_data_lim: null
+
+        clf_fc_dim: 64
+
+      main02:
+        epochs: 1000
+        batch_size: per_model
+        eval_every: 5
+        patience: 5
+
+        learning_rate: 2.*1e-5
+        scheduler: cosine-01
+
+        num_workers: 4
+        data_lim: null
+        val_data_lim: null
+
+        clf_fc_dim: 64
+
+      eval: null # place holder
+
+    model_to_batchsize:
+      
+      resnet18: 512
+      resnet34: 512
+      resnet50: 256
+      effnetb0: 128
+      effnetb1: 128
+      gru: 512
+      lstm: 512
+
+      transformer: 512
+      s4: 512
+      mega: 512
+
+synthesize:
+  
+  common:
+    syncfg_root: resources
+    syndata_root: dataset_syn
+
+    duration: 12
+    target_freq: 8000
+    max_process_time: 5
